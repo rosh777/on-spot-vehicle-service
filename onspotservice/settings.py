@@ -25,7 +25,7 @@ SECRET_KEY = '+p5*)+ikm-3%4zq$8q(wbz4qxaoy=6g4ya0&vzpiakutu^#b%f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'https://shrouded-cliffs-62043.herokuapp.com']
 
 
 # Application definition
