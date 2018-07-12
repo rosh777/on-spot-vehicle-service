@@ -1,0 +1,1 @@
+web: gunicorn onspotservice.wsgi --log-file -
