@@ -6,5 +6,5 @@ router = routers.DefaultRouter()
 router.register('vehicles', views.Vehicle)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
 ]
