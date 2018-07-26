@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'django.contrib.sites',
     'rest_framework',
+    'corsheaders',
     ###
     'django.contrib.admin',
     'django.contrib.auth',
@@ -87,6 +88,9 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -96,6 +100,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'onspotservice.urls'
 
@@ -122,12 +128,20 @@ WSGI_APPLICATION = 'onspotservice.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'd10hn9ccfrum92',
+    #     'USER': 'twbblvnmwaokjv',
+    #     'PASSWORD': '02d64a8b9d7c099f69c49c9ed8c4067ed6d4ae43c26bee8cde779726adb0b216',
+    #     'HOST': 'ec2-54-163-234-99.compute-1.amazonaws.com',
+    #     'PORT': '5432',
+    # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd10hn9ccfrum92',
-        'USER': 'twbblvnmwaokjv',
-        'PASSWORD': '02d64a8b9d7c099f69c49c9ed8c4067ed6d4ae43c26bee8cde779726adb0b216',
-        'HOST': 'ec2-54-163-234-99.compute-1.amazonaws.com',
+        'NAME': 'onspotservice',
+        'USER': 'onspotservice',
+        'PASSWORD': 'onspotservice',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
