@@ -20,6 +20,6 @@ class Vehicle(viewsets.ModelViewSet):
     #     pass
     queryset = Vehicle.objects.all()
     serializer_class = VehicleSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 
 
