@@ -24,9 +24,9 @@ REST_FRAMEWORK = {
         #'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
 }
 
@@ -60,7 +60,7 @@ SECRET_KEY = '+p5*)+ikm-3%4zq$8q(wbz4qxaoy=6g4ya0&vzpiakutu^#b%f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'shrouded-cliffs-62043.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'shrouded-cliffs-62043.herokuapp.com','*']
 
 
 
@@ -102,7 +102,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-CSRF_COOKIE_NAME = "XSRF-TOKEN"
+CSRF_COOKIE_NAME = "XCSRF-TOKEN"
 
 #CORS_ORIGIN_ALLOW_ALL = True
 
