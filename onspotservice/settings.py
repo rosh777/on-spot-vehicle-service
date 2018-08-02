@@ -24,9 +24,9 @@ REST_FRAMEWORK = {
         #'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
 }
 
@@ -41,7 +41,7 @@ LOGOUT_ON_PASSWORD_CHANGE = False
 # Email ka hai kuchh to bhi
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# Enables django-rest-auth to use JWT tokens instead of regular tokens.
+# Enables django-rest-au    th to use JWT tokens instead of regular tokens.
 REST_USE_JWT = True
 
 #for registration purpose
@@ -75,7 +75,7 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'django.contrib.sites',
     'rest_framework',
-    'corsheaders',
+    #'corsheaders',
     ###
     'django.contrib.admin',
     'django.contrib.auth',
@@ -88,50 +88,52 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.BrokenLinkEmailsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'corsheaders.middleware.CorsPostCsrfMiddleware',
+    #'corsheaders.middleware.CorsPostCsrfMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
+CSRF_COOKIE_NAME = "XSRF-TOKEN"
 
-CORS_ORIGIN_WHITELIST = (
-    'https://shrouded-cliffs-62043.herokuapp.com'
-    '192.168.42.77:19002'
-    'exp://192.168.42.77:19000'
-    'localhost:8000',
-    '127.0.0.1:9000'
-)
+#CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ALLOW_HEADERS = (
-    'x-requested-with',
-    'content-type',
-    'accept',
-    'origin',
-    'authorization',
-    'x-csrftoken',
-    'Api-Authorization',
-)
-
-CORS_ALLOW_METHODS = (
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-)
-
-CORS_ALLOW_CREDENTIALS = True
+# CORS_ORIGIN_WHITELIST = (
+#     'https://shrouded-cliffs-62043.herokuapp.com'
+#     '192.168.42.77:19002'
+#     'exp://192.168.42.77:19000'
+#     'localhost:8000',
+#     '127.0.0.1:9000'
+# )
+#
+# CORS_ALLOW_HEADERS = (
+#     'x-requested-with',
+#     'content-type',
+#     'accept',
+#     'origin',
+#     'authorization',
+#     'x-csrftoken',
+#     'Api-Authorization',
+# )
+#
+# CORS_ALLOW_METHODS = (
+#     'DELETE',
+#     'GET',
+#     'OPTIONS',
+#     'PATCH',
+#     'POST',
+#     'PUT',
+# )
+#
+# CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'onspotservice.urls'
 
