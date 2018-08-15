@@ -4,8 +4,8 @@ from rest_framework.views import APIView
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Vehicle
-from .serializers import VehicleSerializer
+from .models import Vehicle, Shop
+from .serializers import VehicleSerializer, ShopSerializer
 #from django.views.decorators.csrf import csrf_exempt
 
 
@@ -25,5 +25,6 @@ class Vehicle(viewsets.ModelViewSet):
     queryset = Vehicle.objects.all()
     serializer_class = VehicleSerializer
 
-
-
+class Shop(viewsets.ModelViewSet):
+    queryset = Shop.objects.all()
+    serializer_class = ShopSerializer

@@ -67,6 +67,13 @@ ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'shrouded-cliffs-62043.her
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    ##
     'userside',
     'rest_framework.authtoken',
     'rest_auth',
@@ -75,14 +82,10 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'django.contrib.sites',
     'rest_framework',
-    #'corsheaders',
-    ###
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.gis',
+    'leaflet',
+    'rest_framework_gis',
+
 ]
 
 MIDDLEWARE = [
@@ -135,6 +138,22 @@ MIDDLEWARE = [
 #
 # CORS_ALLOW_CREDENTIALS = True
 
+#GDAL_LIBRARY_PATH = 'C:\\ROSHAN KADU\\AppData\\Local\\Programs\\Python\\Python36\\Lib\\site-packages\\osgeo\\gdal203.dll'
+#GDAL_LIBRARY_PATH = r"C:\\Program Files\\GDAL"
+
+GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyAnQl7fB9VExCz-wnb2qowUt09kXx04iXc'
+#
+# GEOPOSITION_MAP_OPTIONS = {
+#     'minZoom': 3,
+#     'maxZoom': 15,
+# }
+
+LEAFLET_CONFIG = {
+    #'DEFAULT_CENTER': (6.0, 45.0),
+    #'DEFAULT_ZOOM': 16,
+    # 'MIN_ZOOM': 3,
+    # 'MAX_ZOOM': 18,
+}
 ROOT_URLCONF = 'onspotservice.urls'
 
 TEMPLATES = [
@@ -169,7 +188,7 @@ DATABASES = {
         'PORT': '5432',
     }
     # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'ENGINE': 'django.contrib.gis.db.backends.postgis',
     #     'NAME': 'onspotservice',
     #     'USER': 'onspotservice',
     #     'PASSWORD': 'onspotservice',
