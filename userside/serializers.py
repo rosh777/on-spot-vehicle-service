@@ -16,3 +16,4 @@ class ShopSerializer(serializers.ModelSerializer):
         #fields = ('id', 'name', 'address', 'city', 'location')
         fields = '__all__'
 
+

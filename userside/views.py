@@ -28,3 +28,4 @@ class Vehicle(viewsets.ModelViewSet):
 class Shop(viewsets.ModelViewSet):
     queryset = Shop.objects.all()
     serializer_class = ShopSerializer
+

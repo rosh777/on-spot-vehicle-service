@@ -30,6 +30,3 @@ class Shop(models.Model):
         self.location = Point(self.long, self.lat)
         super(Shop, self).save(kwargs)
 
-
-
-
