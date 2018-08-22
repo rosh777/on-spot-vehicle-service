@@ -1,18 +1,12 @@
-from django.shortcuts import render
-from django.shortcuts import get_object_or_404
-from rest_framework.views import APIView
-from rest_framework import viewsets, permissions
-from rest_framework.response import Response
-from rest_framework import status
+
+from rest_framework import viewsets
 from .models import Vehicle, Shop
 from .serializers import VehicleSerializer, ShopSerializer
-#from django.views.decorators.csrf import csrf_exempt
-
-
+from django.contrib.gis.db.models.functions import Distance
+from django.contrib.gis.geos import GEOSGeometry
 
 # List all vehicles or create one
 # vehicles/
-#
 class Vehicle(viewsets.ModelViewSet):
 
     # def get(self, request):
@@ -28,4 +22,14 @@ class Vehicle(viewsets.ModelViewSet):
 class Shop(viewsets.ModelViewSet):
     queryset = Shop.objects.all()
     serializer_class = ShopSerializer
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        latitude = self.request.query_params.get('lat', None)
+        longitude = self.request.query_params.get('lng', None)
+
+        if latitude and longitude:
+            pnt = GEOSGeometry('POINT(' + str(longitude) + ' ' + str(latitude) + ')', srid=4326)
+            qs = qs.annotate(distance= Distance('location', pnt)).order_by('distance')
+        return qs
 

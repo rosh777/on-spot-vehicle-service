@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import datetime
+
 # # Configure the JWTs to expire after 1 hour, and allow users to refresh near-expiration tokens
 # JWT_AUTH = {
 #     'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=1),
@@ -62,7 +63,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'shrouded-cliffs-62043.herokuapp.com','*']
 
-
+# REST_AUTH_SERIALIZERS = {
+#     'USER_DETAILS_SERIALIZER': 'userside.serializers.UserSerializer'
+# }
 
 # Application definition
 
@@ -85,7 +88,7 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'leaflet',
     'rest_framework_gis',
-
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [
@@ -179,22 +182,22 @@ WSGI_APPLICATION = 'onspotservice.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'd10hn9ccfrum92',
-    #     'USER': 'twbblvnmwaokjv',
-    #     'PASSWORD': '02d64a8b9d7c099f69c49c9ed8c4067ed6d4ae43c26bee8cde779726adb0b216',
-    #     'HOST': 'ec2-54-163-234-99.compute-1.amazonaws.com',
-    #     'PORT': '5432',
-    # }
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'onspotservice',
-        'USER': 'onspotservice',
-        'PASSWORD': 'onspotservice',
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd10hn9ccfrum92',
+        'USER': 'twbblvnmwaokjv',
+        'PASSWORD': '02d64a8b9d7c099f69c49c9ed8c4067ed6d4ae43c26bee8cde779726adb0b216',
+        'HOST': 'ec2-54-163-234-99.compute-1.amazonaws.com',
         'PORT': '5432',
     }
+    # 'default': {
+    #     'ENGINE': 'django.contrib.gis.db.backends.postgis',
+    #     'NAME': 'onspotservice',
+    #     'USER': 'onspotservice',
+    #     'PASSWORD': 'onspotservice',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
 }
 
 
