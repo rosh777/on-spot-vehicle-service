@@ -18,7 +18,7 @@ class ShopSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Shop
         geo_field = "location"
-        fields = ('id', 'logo', 'name', 'type', 'phone', 'services', 'address', 'city', 'lat', 'long', 'location', 'distance')
+        fields = ('id', 'logo', 'name', 'type', 'phone', 'services', 'address', 'city', 'lat', 'long', 'location', 'distance', 'isActive')
 
 
 

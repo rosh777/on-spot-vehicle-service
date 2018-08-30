@@ -182,22 +182,22 @@ WSGI_APPLICATION = 'onspotservice.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd10hn9ccfrum92',
-        'USER': 'twbblvnmwaokjv',
-        'PASSWORD': '02d64a8b9d7c099f69c49c9ed8c4067ed6d4ae43c26bee8cde779726adb0b216',
-        'HOST': 'ec2-54-163-234-99.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
     # 'default': {
-    #     'ENGINE': 'django.contrib.gis.db.backends.postgis',
-    #     'NAME': 'onspotservice',
-    #     'USER': 'onspotservice',
-    #     'PASSWORD': 'onspotservice',
-    #     'HOST': 'localhost',
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'd10hn9ccfrum92',
+    #     'USER': 'twbblvnmwaokjv',
+    #     'PASSWORD': '02d64a8b9d7c099f69c49c9ed8c4067ed6d4ae43c26bee8cde779726adb0b216',
+    #     'HOST': 'ec2-54-163-234-99.compute-1.amazonaws.com',
     #     'PORT': '5432',
     # }
+    'default': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'onspotservice',
+        'USER': 'onspotservice',
+        'PASSWORD': 'onspotservice',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
 
 

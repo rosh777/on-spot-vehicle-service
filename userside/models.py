@@ -32,6 +32,7 @@ class Shop(models.Model):
     lat = models.FloatField(blank=True, null=True)
     long = models.FloatField(blank=True, null=True)
     location = models.PointField(srid=4326, geography=True, blank=True, null=True)
+    isActive = models.BooleanField(default=True)
 
     objects = models.Manager()
 
